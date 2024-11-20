@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 PIK - API
 ====================
 
@@ -1047,3 +1048,6 @@ Los interactivos disponibles hasta ahora son:
 		}
 	]
 }
+=======
+# Consultorio
+>>>>>>> 328172690c1eebf9e3eddc4eb645feba5206595d
