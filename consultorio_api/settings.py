@@ -100,11 +100,11 @@ if DATABASE_URL:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': parsed_url.path[1:],  # Eliminar la barra del inicio
-            'USER': parsed_url.username,
-            'PASSWORD': parsed_url.password,
-            'HOST': parsed_url.hostname,
-            'PORT': parsed_url.port,
+            'NAME': 'consultorio_db_k5hg',  # Eliminar la barra del inicio
+            'USER': 'consultorio_db_k5hg_user',
+            'PASSWORD': 'eU9nQIzgQcwi5fiBJeHGiXQdEideoUoE',
+            'HOST': 'dpg-ct86mjl2ng1s73f27k6g-a',
+            'PORT': 5432,
         }
     }
 
