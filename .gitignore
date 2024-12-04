@@ -56,3 +56,4 @@ consultorio_api/migrations
 
 # Upload data
 /uploadData
+.vercel
