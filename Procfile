@@ -1,1 +1,1 @@
-web: gunicorn consultorio_api.wsgi
+web: python manage.py migrate && gunicorn consultorio_api.wsgi

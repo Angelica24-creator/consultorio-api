@@ -26,7 +26,7 @@ SECRET_KEY = '-_&+lsebec(whhw!%n@ww&1j=4-^j_if9x8$q778+99oz&!ms2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == True
 
-ALLOWED_HOSTS = ['#']
+ALLOWED_HOSTS = ['https://consultorio-api-ynp9.onrender.com']
 
 
 # Application definition
