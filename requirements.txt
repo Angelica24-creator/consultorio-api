@@ -5,6 +5,7 @@ djangorestframework==3.14.0
 django-filter==23.5
 mysqlclient==2.2.4
 Pillow==10.4.0
+gunicorn==20.1.0 
 pymysql
 django-rest-auth
 cryptography
