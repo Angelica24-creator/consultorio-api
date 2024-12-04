@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 from pathlib import Path
+from urllib.parse import urlparse
 import os
 
 
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-_&+lsebec(whhw!%n@ww&1j=4-^j_if9x8$q778+99oz&!ms2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://consultorio-api-ynp9.onrender.com']
+ALLOWED_HOSTS = ['consultorio-api-ynp9.onrender.com']
 
 
 # Application definition
@@ -92,10 +93,20 @@ WSGI_APPLICATION = 'consultorio_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+DATABASE_URL = os.getenv('DATABASE_URL')
 
-DATABASES = {
-
-}
+if DATABASE_URL:
+    parsed_url = urlparse(DATABASE_URL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': parsed_url.path[1:],  # Eliminar la barra del inicio
+            'USER': parsed_url.username,
+            'PASSWORD': parsed_url.password,
+            'HOST': parsed_url.hostname,
+            'PORT': parsed_url.port,
+        }
+    }
 
 
 # Running on production App Engine, so connect to Google Cloud SQL using
