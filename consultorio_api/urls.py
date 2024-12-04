@@ -32,7 +32,24 @@ from consultorio_api.views import historial
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({
+        "message": "Bienvenido a Point Experts API",
+        "endpoints": [
+            "/bootstrap/version",
+            "/paciente/",
+            "/lista-pacientes/",
+            "/doctor/",
+            "/lista-doctor/",
+            # Agrega aquí otras rutas relevantes
+        ]
+    })
+
+
 urlpatterns = [
+        path('', api_root, name='api_root'),  # Ruta para la raí
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
     #Create Paciente
@@ -75,7 +92,7 @@ urlpatterns = [
         path('id-historial/', historial.HistorialesView.as_view()),
     #Edit Historial
         path('historial-edit/', historial.HistorialViewEdit.as_view()),
-        
+
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
